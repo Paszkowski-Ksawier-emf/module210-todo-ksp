@@ -48,7 +48,7 @@ body {
 }
 
 #todo-input:focus {
-  border-color: #007bff;
+  border-color: #ff8800;
 }
 
 button {
