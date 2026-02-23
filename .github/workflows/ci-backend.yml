@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/backend/**'
+      - 'src/backend/**' # test
 
 env:
   REGISTRY: "acrinfobi22210.azurecr.io" # Nom de la registry Azure
