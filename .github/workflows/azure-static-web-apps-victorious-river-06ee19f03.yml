@@ -50,6 +50,6 @@ jobs:
           if [ -f frontend/index.html ]; then
             echo "Le fichier index.html existe"
           else
-            echo "Erreur : index.html n’existe pas!"
+            echo "Erreur : index.html n'existe pas!"
             exit 1
           fi
