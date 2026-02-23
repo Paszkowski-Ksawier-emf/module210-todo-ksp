@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: "acrinfobi22210.azurecr.io" # Nom de la registry Azure
-  IMAGE_NAME: "backend-app-KP"          # Nom de votre image Docker
+  IMAGE_NAME: "backend-kp"          # Nom de votre image Docker
 
 jobs:
   build-and-push:
