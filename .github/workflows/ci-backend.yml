@@ -26,7 +26,7 @@ jobs:
       # Build de l’image Docker
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} -f backend/Dockerfile backend/
+          docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} -f src/backend/Dockerfile src/backend
 
       # Push de l’image sur la registry
       - name: Push Docker image
