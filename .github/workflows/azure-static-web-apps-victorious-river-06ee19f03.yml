@@ -44,6 +44,8 @@ jobs:
         uses: treosh/lighthouse-ci-action@12.6.1
         with:
           urls: "https://todo.ksawieradampaszk.emf-informatique.ch"
+          uploadArtifacts: true
+          temporaryPublicStorage: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
