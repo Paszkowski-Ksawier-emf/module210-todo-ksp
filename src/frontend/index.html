@@ -10,12 +10,33 @@
 </head>
 <body>
   <div class="app-container">
-    <h1>Todo App not so cool</h1>
+    <h1>Todo App not so cool, sad huh</h1>
+
+    <!-- Affichage du nombre de tâches -->
+    <div id="task-counter">Chargement du nombre de tâches...</div>
+
     <form id="todo-form">
       <input type="text" id="todo-input" placeholder="Add a new task" required>
       <button type="submit">Add</button>
     </form>
+
     <ul id="todo-list"></ul>
   </div>
+
+  <script>
+    // Charger le nombre de tâches dès le chargement de la page
+    async function loadTaskCount() {
+      try {
+        const response = await fetch('http://localhost:7072/api/function-paszkowski'); // endpoint Azure Function
+        const data = await response.json();
+        document.getElementById('task-counter').textContent = `Nombre de tâches : ${data.count}`;
+      } catch (error) {
+        document.getElementById('task-counter').textContent = 'Impossible de charger le nombre de tâches';
+        console.error(error);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadTaskCount);
+  </script>
 </body>
 </html>
