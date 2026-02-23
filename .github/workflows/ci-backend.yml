@@ -3,32 +3,30 @@ name: Build and save my Docker image to a registry
 on:
   push:
     branches:
-      - main  # Déclenchement lorsque le code est poussé sur main
+      - main
+    paths:
+      - 'src/backend/**'  # déclenche seulement si backend change
 
 env:
   REGISTRY: "acrinfobi22210.azurecr.io" # Nom de la registry Azure
-  IMAGE_NAME: "backend-kp"          # Nom de votre image Docker
+  IMAGE_NAME: "backend-kp"              # Nom de votre image Docker
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      # Récupération du code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Login à Azure Container Registry
-      - name: Login to Azure Container Registry
+      - name: Login Azure Container Registry
         run: |
           echo "${{ secrets.PASSWORD }}" | docker login ${{ env.REGISTRY }} -u ${{ secrets.USERNAME }} --password-stdin
 
-      # Build de l’image Docker
       - name: Build Docker image
         run: |
           docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} -f src/backend/Dockerfile src/backend
 
-      # Push de l’image sur la registry
       - name: Push Docker image
         run: |
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
