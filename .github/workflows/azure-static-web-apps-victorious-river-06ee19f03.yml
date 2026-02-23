@@ -46,6 +46,8 @@ jobs:
           urls: "https://todo.ksawieradampaszk.emf-informatique.ch"
           uploadArtifacts: true
           temporaryPublicStorage: true
+          budgetPath: ./budget.json
+
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
