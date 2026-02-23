@@ -20,7 +20,7 @@ jobs:
           submodules: true
           lfs: false
       - name: Vérifier si index.html existe
-        run: |
+        run:
           if [ -f frontend/index.html ]; then
             echo "Le fichier index.html existe"
           else
