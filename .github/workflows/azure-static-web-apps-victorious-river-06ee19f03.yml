@@ -44,3 +44,12 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_VICTORIOUS_RIVER_06EE19F03 }}
           action: "close"
+
+      - name: Vérifier si index.html existe
+        run: |
+          if [ -f frontend/index.html ]; then
+            echo "Le fichier index.html existe"
+          else
+            echo "Erreur : index.html n’existe pas!"
+            exit 1
+          fi
