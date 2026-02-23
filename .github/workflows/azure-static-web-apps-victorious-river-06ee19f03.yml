@@ -53,3 +53,6 @@ jobs:
             echo "Erreur : index.html n'existe pas!"
             exit 1
           fi
+          
+      - name: Lighthouse CI Action
+        uses: treosh/lighthouse-ci-action@12.6.1
